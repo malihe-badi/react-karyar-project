@@ -1,0 +1,10 @@
+.products{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 20px;
+    margin:50px;
+  }
+  
+ 
