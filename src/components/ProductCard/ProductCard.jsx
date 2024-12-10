@@ -1,11 +1,10 @@
-// src/components/ProductCard.js
-// src/components/ProductCard.js
+
 import React from 'react';
 import './ProductCard.css';
 
-function ProductCard({ product }) {
+const ProductCard = ({product}) => {
   return (
-    <div key={product._id} className="product-card">
+    <div className="product-card">
     <img
         className='product-img'
         src={product.images[0]} 
@@ -13,7 +12,7 @@ function ProductCard({ product }) {
       />
       <p className="category-name">{product.category.name}</p>
       <h3>{product.name}</h3>
-      <p className='product-price'>{product.price.toFixed(2).toLocaleString()} $</p>
+      <p className='product-price'>{product.price.toFixed(2)} $</p>
     </div>
   );
 }

@@ -1,7 +1,6 @@
-// src/components/ProductList.js
+
 import React, { useState, useEffect } from 'react';
 import ProductCard from "../ProductCard/ProductCard";
-
 import Loading from '../Loading/Loading';
 import './ProductList.css';
 
@@ -13,16 +12,11 @@ const ProductList = () => {
       try {
         const response = await fetch('https://kaaryar-ecom.liara.run/v1/products');
         const data = await response.json();
-
-        console.log('داده‌های دریافت‌شده:', data.products);
-
         if (Array.isArray(data.products) && data.products.length > 0) {
-          setProducts(data.products);  // توجه به products درون داده‌ها
-        } else {
-          console.warn('هیچ محصولی پیدا نشد.');
+          setProducts(data.products);  
         }
       } catch (error) {
-        console.error('خطا در دریافت داده‌ها:', error);
+        console.error('error:', error);
       } finally {
         setLoading(false);
       }
@@ -38,10 +32,10 @@ const ProductList = () => {
         <Loading />
       ) : products.length > 0 ? (
         products.map((product) => (
-          <ProductCard key={product._id} product={product} />
+          <ProductCard key={product.id} product={product} />
         ))
       ) : (
-        <p>محصولی برای نمایش وجود ندارد.</p>
+        <p>No products available.</p>
       )}
     </div>
   );
