@@ -1,0 +1,13 @@
+.category-list {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.category-list label{
+    padding: 5px 0;
+    display: flex;
+
+}
+.category-list label input{
+    margin-right: 10px;
+}
