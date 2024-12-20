@@ -1,7 +1,6 @@
 .product-card {
     width: 300px;
-    /* height:400px; */
-    border: 1px solid red;
+    border: 1px solid grey;
     padding: 16px;
     text-align: center;
   }
@@ -17,6 +16,7 @@
     font-weight: bold;
     padding-bottom:15px;
     border-bottom: 1px solid rgba(128, 128, 128, 0.534);
+    color: red;
    }
    .icon-card{
     display: flex;

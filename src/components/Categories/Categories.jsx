@@ -1,30 +1,36 @@
 import React, { useState, useEffect } from "react";
-import RequestsCategory from './RequestsCategory';
+import {api} from '../../utils/api';
 import CategoryList from "./CategoryList";
+import ProductList from "../ProductList/ProductList";
+
+ 
 
 const Categories = () => {
     const [categories, setCategories] = useState([]);
+    const [selectedCategory, setSelectedCategory] = useState(null); 
 
-    const fetchCategory = async () => {
-        try {
-            const data = await RequestsCategory();
-            setCategories(data);
-        } catch (error) {
-            console.error('error:', error);
-        }
-    };
-
-    useEffect(() => {
-        fetchCategory();
-    }, []);
-
+      useEffect(() => {
+        api('categories')
+          .then(data =>  setCategories(data))
+          .catch(error => console.error('error:', error))
+      }, []);
+    
+      
+   const handleCategoryClick = (category) => {
+    setSelectedCategory(category.id);
+   }
     return (
         <div>
             {categories.map((category) => (
-                <CategoryList key={category.id} category={category} />
+                <CategoryList 
+                key={category.id}
+                 category={category}
+                 onClick={() => handleCategoryClick(category)} 
+                  />
             ))}
+            {selectedCategory && <ProductList categoryId={selectedCategory} />}
         </div>
     );
 };
-
+console.log(Categories);
 export default Categories;

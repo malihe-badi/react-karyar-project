@@ -13,7 +13,7 @@ const ProductCard = ({product}) => {
       />
       <p className="category-name">{product.category.name}</p>
       <h3>{product.name}</h3>
-      <p className='product-price'>{product.price.toFixed(2)} $</p>
+      <p className='product-price'>$ {product.price.toFixed(2)} </p>
       <div className='icon-card'>
       <CiHeart />
       <CiRepeat />
